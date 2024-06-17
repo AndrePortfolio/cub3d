@@ -1,0 +1,24 @@
+S ./assets/textures/pillar.xpm
+	R 900 600
+
+H ./assets/textures/health.xpm
+
+
+	NO ./assets/textures/north.xpm
+           SO ./assets/textures/south.xpm
+WE ./assets/textures/west.xpm
+EA 	./assets/textures/east.xpm
+
+		F	 255,0,0
+   C 			  			0,255,0
+
+1111111
+110000011111111111111
+11S000000000000000001111111
+1100000000000O000000111111
+11000000000000000000111111
+110000000000H0H0000111111
+10000H00000000000000111
+10000000011111111111
+111111111
+1
