@@ -6,7 +6,7 @@
 /*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:37:24 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 14:09:22 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/20 10:42:59 by andrealbuqu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct s_enemy
 	int					speed;
 	int					size;
 	int					frame;
+	bool				shot;
+	bool				dead;
 }						t_enemy;
 
 typedef struct s_map
@@ -51,6 +53,7 @@ typedef struct s_map
 	char				**map;
 	int					rows;
 	int					cols;
+	int					fd;
 	t_point_i			player;
 	struct s_enemy		**enemies;
 	int					enemy_count;
@@ -85,7 +88,7 @@ typedef struct s_textures
 	struct s_img		sky;
 	struct s_img		ground;
 	struct s_img		weapon[3][5];
-	struct s_img		enemy[3][4];
+	struct s_img		enemy[3][8];
 }						t_textures;
 
 typedef struct s_game
@@ -230,6 +233,7 @@ typedef struct s_sprite_tools
 	t_enemy				**enemy;
 	t_point				new_pos;
 	t_point				wall_in;
+	int					close_to_others;
 	char				**map;
 }						t_sprite_tools;
 

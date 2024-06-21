@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:44:44 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 15:43:17 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/18 12:31:23 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	remove_extra_rows(t_map *map, int rows, char **temp)
 	int	rows_before;
 
 	if (rows == 0)
-		error_message("Empty map");
+		free_map(map, "Empty map", 1);
 	rows_before = rows;
 	while (rows > 0)
 	{

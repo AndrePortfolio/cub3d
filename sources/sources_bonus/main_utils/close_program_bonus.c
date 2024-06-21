@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   close_program_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:49:26 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 17:34:25 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/21 09:05:02 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

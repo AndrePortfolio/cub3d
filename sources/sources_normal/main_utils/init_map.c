@@ -6,7 +6,7 @@
 /*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:46:02 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 15:43:17 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/20 10:39:11 by andrealbuqu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	init_map(t_map *map)
 	map->c_color.red = -1;
 	map->c_color.green = -1;
 	map->c_color.blue = -1;
+	map->fd = 0;
 }

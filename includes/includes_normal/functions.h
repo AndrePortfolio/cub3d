@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btoksoez <btoksoez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:37:01 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/17 11:30:29 by btoksoez         ###   ########.fr       */
+/*   Updated: 2024/06/20 10:40:38 by andrealbuqu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 void	read_input(int argc, char *argv[], t_map *map);
 void	check_arguments(int argc, char *argv[]);
 bool	is_cub(char *file);
-void	read_textures(t_map *map, int fd);
-void	read_map(t_map *map, int fd);
+void	read_textures(t_map *map);
+void	read_map(t_map *map);
 void	remove_extra_rows(t_map *map, int rows, char **temp);
 int		get_texture(char *line, char type, t_map *map);
 void	assign_color(int i, char *num, char type, t_map *map);

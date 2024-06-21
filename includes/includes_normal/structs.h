@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andre-da <andre-da@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:37:09 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/12 16:46:09 by andre-da         ###   ########.fr       */
+/*   Updated: 2024/06/20 10:38:40 by andrealbuqu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_map
 	char				**map;
 	int					rows;
 	int					cols;
+	int					fd;
 	t_point				player;
 	float				player_dir;
 	char				*no_texture;

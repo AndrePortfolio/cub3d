@@ -6,7 +6,7 @@
 /*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:14:18 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 15:43:17 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/20 10:41:07 by andrealbuqu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,16 @@ void	free_map(t_map *map, char *str, int status)
 		}
 		free(map->map);
 	}
-	free(map->ea_texture);
-	free(map->no_texture);
-	free(map->we_texture);
-	free(map->so_texture);
+	if (map->fd)
+		close(map->fd);
+	if (map->ea_texture)
+		free(map->ea_texture);
+	if (map->no_texture)
+		free(map->no_texture);
+	if (map->we_texture)
+		free(map->we_texture);
+	if (map->so_texture)
+		free(map->so_texture);
 	if (status == 1)
 		error_message(str);
 }

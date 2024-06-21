@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_textures_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btoksoez <btoksoez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:47:04 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/17 11:34:22 by btoksoez         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:25:38 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	get_texture(char *line, char type, t_map *map)
 {
 	char	*file;
-	char	*line_before;
 
-	line_before = line;
 	line += 2;
 	ft_skip_whitespace(&line);
 	file = ft_strdup_delimiter(line, WHITESPACE);
@@ -71,6 +69,8 @@ int	get_color(char *line, char type, t_map *map)
 		if (!trimmed_num[i])
 			return (false);
 		copy_color(trimmed_num, line, i);
+		if (ft_atoi(trimmed_num[i]) < 0 || !ft_isdigit_str(trimmed_num[i]))
+			return (false);
 		assign_color(i, trimmed_num[i], type, map);
 		line += num_start(line) + num_length(line, num_start(line)) + 1;
 		free(trimmed_num[i]);

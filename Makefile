@@ -37,7 +37,7 @@ BONUS_DIRS = $(BONUS_DIR)/1.read_input $(BONUS_DIR)/2.validate_input $(BONUS_DIR
 			$(BONUS_DIR)/7.sprites $(BONUS_DIR)/main_utils $(BONUS_DIR)
 BONUS_READ_INPUT = read_input_bonus.c read_input_utils_bonus.c read_map_utils_bonus.c read_textures_utils_bonus.c read_textures_utils_bonus2.c
 BONUS_VALIDATE_INPUT = validate_map_utils_bonus.c validate_map_utils2_bonus.c validate_map_bonus.c
-BONUS_INIT_MLX = init_mlx_bonus.c init_textures_bonus.c start_game_bonus.c start_game_utils_bonus.c
+BONUS_INIT_MLX = init_mlx_bonus.c init_textures_bonus.c init_textures_utils_bonus.c start_game_bonus.c start_game_utils_bonus.c
 BONUS_RAYCAST = raycaster_utils_bonus.c raycaster_utils2_bonus.c raycaster_bonus.c
 BONUS_MOVEMENTS = events_bonus.c movements_bonus.c movements_utils_bonus.c
 BONUS_MINIMAP= draw_ray_utils_bonus.c minimap_bonus.c minimap_rays_bonus.c minimap_rays_utils_bonus.c minimap_utils_bonus.c
@@ -60,13 +60,13 @@ BONUS_OBJ = $(BONUS:$(BONUS_DIRECTORY)/%.c=$(OBJ_BONUS_DIR)/%.o)
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	MLX_DIR = libraries/minilibx-linux
-	MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
+	MLX = $(MLX_DIR)/libmlx_Linux.a
 	MLX_INC = -I$(MLX_DIR) -I$(MLX_DIR)/linux
 	MLX_FLAGS = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
 	CFLAGS += -DLINUX
 else
 	MLX_DIR = libraries/minilibx-mac
-	MLX_LIB = $(MLX_DIR)/libmlx.a
+	MLX = $(MLX_DIR)/libmlx.a
 	MLX_INC = -I$(MLX_DIR) -I$(MLX_DIR)/libmlx
 	MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 endif
@@ -80,15 +80,18 @@ RESET = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT)
+$(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT) $(MLX)
 	@$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(LIBFT) -o $(NAME)
 	@echo "$(CYAN)make$(RESET)   $@ $(GREEN)[OK]$(RESET)"
 
 bonus: $(NAME_BONUS)
 
-$(NAME_BONUS): $(OBJ_BONUS_DIR) $(BONUS_OBJ) $(LIBFT)
+$(NAME_BONUS): $(OBJ_BONUS_DIR) $(BONUS_OBJ) $(LIBFT) $(MLX)
 	@$(CC) $(CFLAGS) $(BONUS_OBJ) $(MLX_FLAGS) $(LIBFT) -o $(NAME_BONUS)
 	@echo "$(CYAN)make$(RESET)   bonus $(GREEN)[OK]$(RESET)"
+
+$(MLX):
+	@$(MAKE) -s -C $(MLX_DIR) --no-print-directory
 
 $(LIBFT):
 	@$(MAKE) -s -C $(LIBFT_DIR) --no-print-directory

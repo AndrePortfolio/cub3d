@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game_utils_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 13:56:00 by andrealbuqu       #+#    #+#             */
-/*   Updated: 2024/06/13 16:34:14 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/19 12:46:23 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

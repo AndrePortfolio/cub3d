@@ -6,11 +6,21 @@
 /*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:49:31 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 15:44:46 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/20 10:44:16 by andrealbuqu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/includes_bonus/cub3d_bonus.h"
+
+float	distance(float x1, float y1, float x2, float y2)
+{
+	float	dx;
+	float	dy;
+
+	dx = x2 - x1;
+	dy = y2 - y1;
+	return (sqrtf(dx * dx + dy * dy));
+}
 
 void	init_map(t_map *map)
 {
@@ -18,6 +28,7 @@ void	init_map(t_map *map)
 		return ;
 	map->map = NULL;
 	map->rows = 0;
+	map->fd = 0;
 	map->player.x = 0;
 	map->player.y = 0;
 	map->player_dir = 0;

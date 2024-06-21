@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:48:54 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 15:44:46 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/19 14:25:10 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,13 @@ void	raycast(t_game *game, t_raycaster *ray)
 		r.wall_height = (WALL_SCALE / r.adjusted);
 		r.top.y = (HEIGHT / 2) - r.wall_height + r.player->jump_height;
 		r.bottom.y = (HEIGHT / 2) + r.wall_height + r.player->jump_height;
-		draw_textures(game, x, r.top.y, r.bottom.y);
-		draw_floor(game, x, r.bottom.y, HEIGHT);
-		draw_ceiling(game, x, 0, r.top.y);
+		draw(game, x, &r);
 		get_enemy_distance(ray, game);
 		if (ray->enemy)
 		{
+			if (fabs(r.angle - r.player->p_angle) <= 0.0025
+				&& game->player->shooting)
+				game->enemies[ray->enemy_id]->shot = true;
 			ray->distance_enemy *= cos(r.angle - r.player->p_angle);
 			draw_enemy(game, x, ray);
 		}

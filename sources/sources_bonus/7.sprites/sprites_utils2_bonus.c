@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites_utils2_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 13:21:45 by andrealbuqu       #+#    #+#             */
-/*   Updated: 2024/06/13 15:44:46 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/19 14:01:21 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,14 @@ void	animate_sprites(t_game *game)
 	i = 0;
 	while (i < game->enemy_count)
 	{
-		game->enemies[i]->frame = frame;
+		if (game->enemies[i]->dead)
+			game->enemies[i]->frame = 7;
+		else if (!game->enemies[i]->shot)
+			game->enemies[i]->frame = frame;
+		else
+			game->enemies[i]->frame = frame + 4;
+		if (game->enemies[i]->frame == 7)
+			game->enemies[i]->dead = true;
 		i++;
 	}
 	if (++counter == ANIMATION_SPEED)

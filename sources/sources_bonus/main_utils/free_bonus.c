@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:17:54 by andrealbuqu       #+#    #+#             */
-/*   Updated: 2024/06/13 15:44:46 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/21 09:13:02 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,16 @@ void	free_map(t_map *map, char *str, int status)
 		}
 		free(map->map);
 	}
-	free(map->ea_texture);
-	free(map->no_texture);
-	free(map->we_texture);
-	free(map->so_texture);
+	if (map->fd)
+		close(map->fd);
+	if (map->ea_texture)
+		free(map->ea_texture);
+	if (map->no_texture)
+		free(map->no_texture);
+	if (map->we_texture)
+		free(map->we_texture);
+	if (map->so_texture)
+		free(map->so_texture);
 	if (status == 1)
 		error_message(map, str);
 }
@@ -72,7 +78,7 @@ void	free_textures(t_game *game, t_textures *textures)
 	while (++i < 3)
 	{
 		j = -1;
-		while (++j < 4)
+		while (++j < 8)
 			if (textures->enemy[i][j].img_ptr)
 				mlx_destroy_image(game->mlx, textures->enemy[i][j].img_ptr);
 	}

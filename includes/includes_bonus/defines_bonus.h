@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:37:18 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 16:33:32 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/19 13:12:29 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 # endif
 /* --------------- General --------------- */
 # define WHITESPACE " \t\n\r\f\v"
-# define VALID_CHARS "NSEW01BOH \t\n\r\f\v\0"
+# define VALID_CHARS "NSEW01BOR \t\n\r\f\v\0"
 # define WS_COMMA " \t\n\r\f\v,"
 # define QUIT 1
 # define EPSILON 0.0001
@@ -79,7 +79,7 @@
 # define MOUSE_SENSITIVITY 0.003
 /* ----------------- Game ---------------- */
 # define PLAYER "NSEW"
-# define ENEMY "BOH"
+# define ENEMY "BOR"
 # define SCALE 50
 # define PSIZE 12
 # define PCENTER 6
@@ -105,10 +105,11 @@
 # define SHOOT_SPEED 5
 # define OFFICER 0
 # define BOSS 1
-# define HITLER 2
+# define RAT 2
 # define ENEMY_SCALE 8000
 # define ESIZE 20
-# define ANIMATION_SPEED 10
+# define ANIMATION_SPEED 15
+# define MIN_DISTANCE 15
 /* --------------- Minimap -------------- */
 # define MINI_ROWS 5
 # define MINI_COLS 7

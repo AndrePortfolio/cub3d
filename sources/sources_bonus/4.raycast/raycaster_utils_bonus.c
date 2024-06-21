@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:48:58 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 15:44:46 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/19 14:12:40 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,11 @@ void	put_pixel_to_img(t_game *game, int x, int y, int color)
 					/ 8));
 		*(unsigned int *)(game->img.pixels_ptr + offset) = color;
 	}
+}
+
+void	draw(t_game *game, int x, t_ray_tools *r)
+{
+	draw_textures(game, x, r->top.y, r->bottom.y);
+	draw_floor(game, x, r->bottom.y, HEIGHT);
+	draw_ceiling(game, x, 0, r->top.y);
 }

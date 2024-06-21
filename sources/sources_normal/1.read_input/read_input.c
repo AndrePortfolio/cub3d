@@ -6,7 +6,7 @@
 /*   By: btoksoez <btoksoez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:44:40 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/17 09:59:57 by btoksoez         ###   ########.fr       */
+/*   Updated: 2024/06/21 09:16:15 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 
 void	read_input(int argc, char *argv[], t_map *map)
 {
-	int	fd;
-
 	check_arguments(argc, argv);
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
+	map->fd = open(argv[1], O_RDONLY);
+	if (map->fd < 0)
 		error_message("Failed to open file");
-	read_textures(map, fd);
-	read_map(map, fd);
-	close(fd);
+	read_textures(map);
+	read_map(map);
 	validate_map(map);
 }
 
-void	read_textures(t_map *map, int fd)
+void	read_textures(t_map *map)
 {
 	char	*line;
 	char	*tmp;
 
-	line = get_next_line(fd);
+	line = get_next_line(map->fd);
 	while (line && *line)
 	{
 		tmp = line;
@@ -39,13 +36,13 @@ void	read_textures(t_map *map, int fd)
 		if (!get_texture_or_color(tmp, map))
 		{
 			free(line);
-			free_map(map, "texture file or color not readable", 1);
+			free_map(map, "invalid texture file or color", 1);
 		}
 		if (line)
 			free(line);
 		if (assigned_all(map))
 			return ;
-		line = get_next_line(fd);
+		line = get_next_line(map->fd);
 	}
 	if (line)
 		free(line);
@@ -87,9 +84,7 @@ void	read_map_aux(t_map *map, int row, char **temp, char *line)
 	if (!temp)
 	{
 		free(line);
-		if (map->map)
-			free_map(map, "Memory allocation failed", 1);
-		error_message("Memory allocation failed");
+		free_map(map, "map alloc failed", 1);
 	}
 	map->map = temp;
 	map->map[row] = ft_strtrim(line, "\n");
@@ -100,7 +95,7 @@ void	read_map_aux(t_map *map, int row, char **temp, char *line)
 	}
 }
 
-void	read_map(t_map *map, int fd)
+void	read_map(t_map *map)
 {
 	char	*line;
 	int		row;
@@ -108,17 +103,17 @@ void	read_map(t_map *map, int fd)
 
 	row = 0;
 	temp = NULL;
-	line = get_next_line(fd);
+	line = get_next_line(map->fd);
 	while (line && *line == '\n')
 	{
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(map->fd);
 	}
 	while (line)
 	{
 		read_map_aux(map, row, temp, line);
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(map->fd);
 		row++;
 	}
 	remove_extra_rows(map, row, temp);

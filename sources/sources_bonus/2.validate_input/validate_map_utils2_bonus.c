@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map_utils2_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
+/*   By: btoksoez <btoksoez@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:47:23 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/13 15:44:46 by andrealbuqu      ###   ########.fr       */
+/*   Updated: 2024/06/18 12:49:37 by btoksoez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**copy_map(t_map *map)
 	row = 0;
 	map_copy = (char **)malloc(sizeof(char *) * (map->rows + 1));
 	if (!map_copy)
-		error_message(map, "Malloc error copy map\n");
+		free_map(map, "Malloc error copy map\n", 1);
 	while (row < map->rows)
 	{
 		map_copy[row] = ft_strdup(map->map[row]);
