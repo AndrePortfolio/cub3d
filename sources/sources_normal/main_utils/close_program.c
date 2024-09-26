@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   close_program.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btoksoez <btoksoez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:45:59 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/21 09:05:14 by btoksoez         ###   ########.fr       */
+/*   Updated: 2024/06/22 10:09:02 by andrealbuqu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	clean_up(t_game *game, char *str, int status)
 	free_map(game->map, NULL, 0);
 	mlx_destroy_image(game->mlx, game->img.img_ptr);
 	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
+	//mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	if (status)
 		error_message(str);

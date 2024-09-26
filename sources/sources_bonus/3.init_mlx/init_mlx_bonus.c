@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btoksoez <btoksoez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andrealbuquerque <andrealbuquerque@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:48:24 by andre-da          #+#    #+#             */
-/*   Updated: 2024/06/21 09:04:55 by btoksoez         ###   ########.fr       */
+/*   Updated: 2024/06/22 10:09:02 by andrealbuqu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	init_window(t_game *game, t_map *map)
 	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "cub3D");
 	if (!game->win)
 	{
-		mlx_destroy_display(game->mlx);
+		//mlx_destroy_display(game->mlx);
 		free(game->mlx);
 		free_map(map, "Window initialization failed", 1);
 	}
@@ -70,7 +70,7 @@ void	init_image(t_game *game)
 	if (!game->img.img_ptr)
 	{
 		mlx_destroy_window(game->mlx, game->win);
-		mlx_destroy_display(game->mlx);
+		//mlx_destroy_display(game->mlx);
 		free(game->mlx);
 		free_map(game->map, "Image initialization failed", 1);
 	}
