@@ -149,5 +149,5 @@ void check_dir(t_raycaster *ray) {
             * ray->scalingf.x;
     }
 }
-
+```
 Built with love together with [Benian](https://github.com/btoksoez)
